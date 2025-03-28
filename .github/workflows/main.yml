@@ -1,11 +1,41 @@
-name: Push to development branch
+name: Push to branch
 
 on:
   push: 
     branches: 
       - 'development'
+      - 'production'
 jobs:
   build:
     name: build
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo "Starting build job ..."
+      - run: echo "The job has been triggered by a ${{github.event_name}} event."
+      - run: echo "Let's checkout the repo"
+      - uses: actions/checkout@v4
+      - run: dotnet restore
+      - run: dotnet publish
+      - run: echo "It should be builded now."
+      - run: zip all.zip *
+      - run: "Uploading the artifact to the build environment."
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artifact-build
+          path: ./all.zip
+          if-no-files-found: echo"Could not find the zip."
+      - run: echo "Execution completed."
   deploy:
+    needs: build
     name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Starting deploy job ..."
+      - run: echo "The job has been triggered by a ${{github.event_name}} event."
+      - run: echo "Let's download the zip file."
+      - uses: actions/download-artifact@v4
+        with: 
+          path: artifact-build
+      - run: echo "Downloaded the zip file."
+          # still needing to check download worked
+          # and deploy on cloud
