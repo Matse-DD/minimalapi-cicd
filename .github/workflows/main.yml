@@ -1,1 +1,11 @@
+name: Push to development branch
 
+on:
+  push: 
+    branches: 
+      - 'development'
+jobs:
+  build:
+    name: build
+  deploy:
+    name: deploy
