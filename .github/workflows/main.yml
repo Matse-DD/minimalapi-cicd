@@ -32,6 +32,7 @@ jobs:
       - run: echo "Starting deploy job ..."
       - run: echo "The job has been triggered by a ${{github.event_name}} event."
       - run: echo "Let's download the zip file."
+      - run: echo "${{secrets.AZURE_CRED}}"
       - uses: actions/download-artifact@v4
         with: 
           path: artifact-build
