@@ -18,7 +18,7 @@ jobs:
       - run: dotnet publish
       - run: echo "It should be builded now."
       - run: zip all.zip *
-      - run: "Uploading the artifact to the build environment."
+      - run: echo "Uploading the artifact to the build environment."
       - uses: actions/upload-artifact@v4
         with:
           name: artifact-build
