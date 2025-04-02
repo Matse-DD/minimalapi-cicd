@@ -37,7 +37,7 @@ jobs:
           path: artifact-build
       - run: echo "Downloaded the zip file."
           # still needing to check download worked
-      - uses: azure/login@v4
+      - uses: azure/login@v2
         with: 
           creds: ${{ secrets.AZURE_CRED}}
           enable-AzPSSession: true
