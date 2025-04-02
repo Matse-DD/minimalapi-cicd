@@ -23,7 +23,6 @@ jobs:
         with:
           name: artifact-build
           path: ./all.zip
-          if-no-files-found: echo "Could not find the zip."
       - run: echo "Execution completed."
   deploy:
     needs: build
