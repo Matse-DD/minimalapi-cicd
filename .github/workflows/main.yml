@@ -23,7 +23,7 @@ jobs:
         with:
           name: artifact-build
           path: ./all.zip
-          if-no-files-found: echo"Could not find the zip."
+          if-no-files-found: echo "Could not find the zip."
       - run: echo "Execution completed."
   deploy:
     needs: build
@@ -39,3 +39,4 @@ jobs:
       - run: echo "Downloaded the zip file."
           # still needing to check download worked
           # and deploy on cloud
+      
