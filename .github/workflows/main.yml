@@ -42,7 +42,7 @@ jobs:
           creds: ${{ secrets.AZURE_CRED}}
           enable-AzPSSession: true
 
-      - uses: azure/container-apps-deploy-action@v4
+      - uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }}/src
           acrName: myregistry
