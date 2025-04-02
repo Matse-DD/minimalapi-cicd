@@ -38,5 +38,15 @@ jobs:
           path: artifact-build
       - run: echo "Downloaded the zip file."
           # still needing to check download worked
-          # and deploy on cloud
-      
+      - uses: azure/login@v4
+        with: 
+          creds: ${{ secrets.AZURE_CRED}}
+          enable-AzPSSession: true
+
+      - uses: azure/container-apps-deploy-action@v4
+        with:
+          appSourcePath: ${{ github.workspace }}/src
+          acrName: myregistry
+          containerAppName: minimal-api
+          resourceGroup: ${{secrets.RESOURCE_GROUP}}
+          # hopefull its gets deployed
