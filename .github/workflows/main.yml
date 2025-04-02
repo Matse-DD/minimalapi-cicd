@@ -5,6 +5,10 @@ on:
     branches: 
       - 'development'
       - 'production'
+      
+permissions:
+  id-token: write
+  contents: read
 jobs:
   build:
     name: build
