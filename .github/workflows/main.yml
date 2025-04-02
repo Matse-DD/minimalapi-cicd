@@ -49,3 +49,4 @@ jobs:
           containerAppName: minimal-api
           resourceGroup: ${{secrets.RESOURCE_GROUP}}
           # hopefull its gets deployed
+ 
