@@ -47,6 +47,7 @@ jobs:
           tenant-id: ${{secrets.AZURE_TENANT_ID}}
           subscription-id: ${{secrets.AZURE_SUB_ID}}
           client-secret: ${{secrets.AZURE_CLIENT_SECRET}}
+          allow-no-subscriptions: true
           # creds: ${{ secrets.AZURE_CRED}}
           enable-AzPSSession: true
       - run: |
