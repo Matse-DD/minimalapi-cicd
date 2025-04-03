@@ -52,3 +52,5 @@ jobs:
           az webapp deploy --resource-group ${{ secrets.RESOURCE_GROUP }} \
                           --name minimal-api \
                           --src-path ./publish
+
+                          
